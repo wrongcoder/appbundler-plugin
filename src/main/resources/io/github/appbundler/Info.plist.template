@@ -39,6 +39,6 @@
       <string>-Dapple.laf.useScreenMenuBar=true</string>
     </array>
     <key>JVMArguments</key>
-    <array/>
+    ${jvmArguments}
   </dict>
 </plist>

@@ -139,6 +139,13 @@ public class CreateApplicationBundleMojo extends AbstractMojo
     private String jvmVersion;
 
     /**
+     * Application arguments for the JVMArguments key.
+     *
+     * @parameter
+     */
+    private List<String> jvmArguments;
+
+    /**
      * Paths to be put on the classpath in addition to the projects dependencies.
      * Might be useful to specifiy locations of dependencies in the provided scope that are not distributed with
      * the bundle but have a known location on the system.
@@ -422,6 +429,23 @@ public class CreateApplicationBundleMojo extends AbstractMojo
         jarFilesBuffer.append("</array>");
 
         velocityContext.put("classpath", jarFilesBuffer.toString());
+
+        StringBuilder jvmArgumentsBuffer = new StringBuilder();
+
+        jvmArgumentsBuffer.append("<array>");
+
+        if ( jvmArguments != null ) {
+            for ( int i = 0; i < jvmArguments.size(); i++ ) {
+                String argumentElement = (String) jvmArguments.get( i );
+                jvmArgumentsBuffer.append("<string>");
+                jvmArgumentsBuffer.append(argumentElement);
+                jvmArgumentsBuffer.append("</string>");
+            }
+        }
+
+        jvmArgumentsBuffer.append("</array>");
+
+        velocityContext.put("jvmArguments", jvmArgumentsBuffer.toString());
 
         try {
             File f = new File(TARGET_CLASS_ROOT, dictionaryFile);
