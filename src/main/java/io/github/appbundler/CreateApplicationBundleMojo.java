@@ -84,7 +84,8 @@ public class CreateApplicationBundleMojo extends AbstractMojo
     private File buildDirectory;
 
     /**
-     * The main class to execute when double-clicking the Application Bundle
+     * The name of the launcher binary.
+     * This is the name that will appear in Activity Monitor, the Application Switcher, etc.
      *
      * @parameter default-value="JavaAppLauncher";
      */
