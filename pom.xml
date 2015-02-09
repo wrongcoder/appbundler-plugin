@@ -62,5 +62,14 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>native</directory>
+				<targetPath>io/github/appbundler</targetPath>
+			</resource>
+		</resources>
 	</build>
 </project>
