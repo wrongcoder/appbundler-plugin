@@ -40,5 +40,7 @@
     </array>
     <key>JVMArguments</key>
     ${jvmArguments}
+    <key>LauncherWorkingDirectory</key>
+    <string>${workingDirectory}</string>
   </dict>
 </plist>
